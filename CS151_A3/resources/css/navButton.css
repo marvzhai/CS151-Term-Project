@@ -1,0 +1,36 @@
+/* Modern White Button Styling */
+.custom-button {
+    -fx-background-color: white;            /* White background */
+    -fx-text-fill: #333333;                 /* Dark grey text */
+    -fx-font-size: 14px;                    /* Font size */
+    -fx-font-family: 'Segoe UI', sans-serif;/* Modern font */
+    -fx-font-weight: normal;                /* Regular font weight */
+    -fx-border-width: 0px;
+   
+  
+  
+}
+
+/* Hover Effect */
+.custom-button:hover {
+    -fx-background-color: #f0f0f0;          /* Light grey background on hover */
+    -fx-border-color: #cccccc;              /* Darker border on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 15, 0, 0, 4); /* Stronger shadow */
+}
+
+/* Pressed Effect */
+.custom-button:pressed {
+    -fx-background-color: #e0e0e0;          /* Slightly darker grey on press */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 5, 0, 0, 2);  /* Subtle shadow on press */
+    -fx-border-color: #bbbbbb;              /* Darker border when pressed */
+    -fx-border-width: 2px;
+}
+
+/* Disabled Button */
+.custom-button:disabled {
+    -fx-background-color: #f5f5f5;          /* Light grey background for disabled */
+    -fx-text-fill: #aaaaaa;                 /* Light grey text for disabled */
+    -fx-border-color: #e0e0e0;              /* Light grey border for disabled */
+}
+
+

@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: cyan;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Content1Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Content1Controller">
    <children>
-      <Label layoutX="82.0" layoutY="85.0" prefHeight="60.0" prefWidth="236.0" text="Content #1">
+      <Label layoutX="82.0" layoutY="85.0" onDragDetected="#gotToContent3Op" prefHeight="60.0" prefWidth="236.0">
          <font>
-            <Font size="48.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="172.0" layoutY="200.0" mnemonicParsing="false" onAction="#gotToContent3Op" prefHeight="26.0" prefWidth="146.0" text="Go to Content #3" />
+      <Button alignment="CENTER" layoutX="127.0" layoutY="115.0" mnemonicParsing="false" onAction="#gotToContent3Op" prefHeight="26.0" prefWidth="146.0" styleClass="custom-button" stylesheets="@../css/openAccButton.css" text="Open New Account" />
    </children>
 </AnchorPane>

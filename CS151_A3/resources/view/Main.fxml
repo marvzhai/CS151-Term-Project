@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<HBox fx:id="mainBox" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+<HBox fx:id="mainBox" prefHeight="400.0" prefWidth="600.0" HBox.hgrow="ALWAYS" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: azure;">
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: azure;">
          <children>
-            <Button layoutX="34.0" layoutY="96.0" mnemonicParsing="false" onAction="#showContent1Op" prefHeight="26.0" prefWidth="133.0" text="Show Content #1" />
-            <Button layoutX="34.0" layoutY="154.0" mnemonicParsing="false" onAction="#showContent2Op" prefHeight="26.0" prefWidth="133.0" text="Show Content #2" />
+            <VBox layoutY="-4.0" prefHeight="406.0" prefWidth="200.0" style="-fx-background-color: #9cabb4;">
+               <children>
+                  <Label prefHeight="62.0" prefWidth="206.0" styleClass="app-name-label" stylesheets="@../css/appname.css" text="BudgetMe" />
+                  <Button alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showContent1Op" prefHeight="30.0" prefWidth="205.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="🏠 Home" textAlignment="CENTER">
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showContent2Op" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="💰 Accounts">
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </children>

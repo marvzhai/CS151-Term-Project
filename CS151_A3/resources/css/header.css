@@ -1,0 +1,14 @@
+/* Enhanced Header Styling */
+.header-label {
+    -fx-font-size: 16px;                        /* Larger font size for the header */
+    -fx-font-weight: bold;                      /* Bold font for emphasis */
+    -fx-font-family: 'Segoe UI', sans-serif;    /* Clean modern font */
+    -fx-text-fill: #ffffff;                     /* White text color */
+    -fx-background-color: linear-gradient(#C7C7C7, #DBDBDB); /* Gradient background */
+    -fx-padding: 15px 30px;                     /* Padding around the text */
+    -fx-border-radius: 8;                       /* Rounded corners for the background */
+    -fx-background-radius: 8;                   /* Match border and background radius */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0.5, 0, 4); /* Soft shadow */
+    -fx-alignment: center;                      /* Center alignment of text */
+}
+
