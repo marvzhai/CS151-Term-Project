@@ -7,7 +7,10 @@ import javafx.scene.control.Label;
 import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import application.CommonObjects;
@@ -45,61 +48,78 @@ public class AddAccountController {
 	@FXML
 	private Label openingBalanceError;
 	
-	private ObservableList<BankAccount> accountsList = FXCollections.observableArrayList();
-	
 	@FXML
     public void initialize() {
        
         openingDateField.setValue(LocalDate.now());
     }
 	
-	 @FXML
-	    public void handleAddAccount() {
-		 if(validateFields()) {
-			 
-		 
-	        String accountName = accountNameField.getText();
-	        String accountType = accountTypeField.getText();
-	        String openingDate = openingDateField.getValue().toString(); // Convert DatePicker to String
-	        double openingBalance = Double.parseDouble(openingBalanceField.getText());
-
-	        // Create a new BankAccount object
-	        BankAccount newAccount = new BankAccount(accountName, accountType, openingDate, openingBalance);
-
-	        // Add the new account to the list
-	        accountsList.add(newAccount);
-
-	        // Clear input fields after adding the account
-	        accountNameField.clear();
-	        accountTypeField.clear();
-	        openingDateField.setValue(null);
-	        openingBalanceField.clear();
-		 }
-	    }
 	
 	private CommonObjects commonObjects = CommonObjects.getInstance();
 	
 	@FXML public void AddAccount() {
-		URL url = getClass().getClassLoader().getResource("view/Content2.fxml");
 		
-		try {
-			AnchorPane pane2 = (AnchorPane) FXMLLoader.load(url);
+		if(validateFields()) {
 			
-			HBox mainBox = commonObjects.getMainBox();
+			URL url = getClass().getClassLoader().getResource("view/Content2.fxml");
 			
-			if (mainBox.getChildren().size() > 1) {
-				mainBox.getChildren().remove(1);
+			
+			try {
+				AnchorPane pane2 = (AnchorPane) FXMLLoader.load(url);
+				
+				HBox mainBox = commonObjects.getMainBox();
+				
+				if (mainBox.getChildren().size() > 1) {
+					mainBox.getChildren().remove(1);
+				}
+				
+				mainBox.getChildren().add(pane2);
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			
-			mainBox.getChildren().add(pane2);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+		    	BankAccount account = new BankAccount(accountNameField.getText(), openingDateField.getValue(), Double.parseDouble(openingBalanceField.getText()));
+		    	addAccount(account);
+		    	
 		}
+	
 	}
+		
+	URL resource = getClass().getResource("/data/accounts.csv");
+	String filePath = resource.getPath(); 
+	private ObservableList<BankAccount> accountsList;
+
+	    public AddAccountController() {
+	        // Initialize the list and load accounts from the file
+	        accountsList = FXCollections.observableArrayList();
+	        //loadAccountsFromFile();
+	    }
+
+	
+	public void saveAccountToFile(BankAccount account) {
+	    	if(validateFields()) {
+		        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+		           
+		            String line = account.getName()  + "," + account.getOpeningDate()+ "," + account.getBalance();
+		            writer.write(line);
+		            writer.newLine();
+		            
+		            System.out.println("Account successfully saved: " + line);
+		            
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }
+	    	}
+	    }
 	
 	
+	 public void addAccount(BankAccount account) {
+	        accountsList.add(account);  // Add to memory
+	        saveAccountToFile(account);  // Save to file	      
+	        
+	    }
 
 	private boolean validateFields() {
 	    // Clear previous error messages
@@ -110,13 +130,11 @@ public class AddAccountController {
 
 	    boolean isValid = true;
 
-	    // Account Name validation
 	    if (accountNameField.getText().isEmpty()) {
 	        accountNameError.setText("Account Name is required.");
 	        isValid = false;
 	    }
 
-	    // Account Type validation
 	    String accountType = accountTypeField.getText();
 	    if (accountType.isEmpty() || (!accountType.equals("Savings") && !accountType.equals("Checking"))) {
 	        accountTypeError.setText("Account Type must be 'Savings' or 'Checking'.");
@@ -124,15 +142,14 @@ public class AddAccountController {
 	    }
 
 	    
-	    // Opening Date validation
 	    if (openingDateField.getValue().isAfter(LocalDate.now()) ) {
 	        openingDateError.setText("Opening Date cannot be in the future.");
 	        isValid = false;
 	    }
 
-	    // Opening Balance validation
+	   
 	    try {
-	        double openingBalance = Double.parseDouble(openingBalanceField.getText());
+	    	double openingBalance = Double.parseDouble(openingBalanceField.getText());
 	        if (openingBalance < 0) {
 	            openingBalanceError.setText("Opening Balance cannot be negative.");
 	            isValid = false;
@@ -141,15 +158,13 @@ public class AddAccountController {
 	        openingBalanceError.setText("Opening Balance must be a valid number.");
 	        isValid = false;
 	    }
-
-	    AddAccount();
-	    return isValid; // If all fields are valid, return true; otherwise, return false
+	    
+	    return isValid; 
 	}
 
-
-	  public ObservableList<BankAccount> getAccountsList() {
-	        return accountsList;
-	    }
+	public ObservableList<BankAccount> getAccountsList() {
+        return accountsList;
+    }
 	
 }
 

@@ -1,31 +1,41 @@
 package application.controller;
+import java.time.LocalDate;;
 
 public class BankAccount {
-    private String accountName;
-    private String accountType;
-    private String openingDate;
-    private double openingBalance;
 
-    public BankAccount(String accountName, String accountType, String openingDate, double openingBalance) {
-        this.accountName = accountName;
-        this.accountType = accountType;
+    private String name;
+    private double balance;
+    private LocalDate openingDate;
+
+    public BankAccount(String name, LocalDate openingDate, double balance ) {
+        this.name = name;
+     
+        this.balance = balance;
         this.openingDate = openingDate;
-        this.openingBalance = openingBalance;
     }
 
-    public String getAccountName() {
-        return accountName;
+    // Getters and setters for all fields
+    public String getName() {
+        return name;
+    } 
+
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getAccountType() {
-        return accountType;
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     public String getOpeningDate() {
-        return openingDate;
+        return openingDate.toString();
     }
 
-    public double getOpeningBalance() {
-        return openingBalance;
+    public void setOpeningDate(LocalDate openingDate) {
+        this.openingDate = openingDate;
     }
 }

@@ -1,8 +1,13 @@
 package application.controller;
 
 import java.io.IOException;
-import java.net.URL;
 
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import java.net.URL;
+import java.time.LocalDate;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -34,8 +39,11 @@ public class MainController {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 	@FXML public void showContent2Op() {
+		
 		URL url = getClass().getClassLoader().getResource("view/Content2.fxml");
 		
 		try {
@@ -51,8 +59,12 @@ public class MainController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 	}
 	
+	
+
+
 	
 	
 }

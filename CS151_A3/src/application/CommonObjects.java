@@ -2,6 +2,7 @@ package application;
 
 import javafx.scene.layout.HBox;
 
+
 public class CommonObjects {
 	
 	private static CommonObjects commonObjects = new CommonObjects();
@@ -22,9 +23,6 @@ public class CommonObjects {
 		this.mainBox = mainBox;
 	}
 
-	
-	
-	
-	
+
 
 }

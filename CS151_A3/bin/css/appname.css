@@ -1,0 +1,11 @@
+/* Application Name Label Styling */
+.app-name-label {
+    -fx-font-size: 16px;                        /* Large font size for application name */
+    -fx-font-weight: bold;                      /* Bold font for emphasis */
+    -fx-font-family: 'Segoe UI', sans-serif;    /* Modern font */
+    -fx-text-fill: #333333;                     /* Dark grey text color */
+    -fx-padding: 10px;                          /* Padding around the label */
+    -fx-background-color: transparent;          /* Transparent background */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.3), 10, 0.5, 0, 2 ); /* Subtle shadow for depth */
+    -fx-alignment: center;                      /* Center alignment */
+}

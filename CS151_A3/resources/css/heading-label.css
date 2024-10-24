@@ -1,0 +1,7 @@
+.heading-label {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4, 0.0 , 0 , 1 );
+    -fx-padding: 10px;
+}
