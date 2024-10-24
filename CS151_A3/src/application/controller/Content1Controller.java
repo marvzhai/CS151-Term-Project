@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
+// HOME PAGE CONTROLLER
 public class Content1Controller {
 	
 	private CommonObjects commonObjects = CommonObjects.getInstance();
