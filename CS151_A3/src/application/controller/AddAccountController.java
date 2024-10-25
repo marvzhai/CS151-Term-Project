@@ -59,33 +59,33 @@ public class AddAccountController {
 	
 	@FXML public void AddAccount() {
 		
-		if(validateFields()) {
+	if(validateFields()) {
+		// verify account is valid before input
+		BankAccount account = new BankAccount(accountNameField.getText(), openingDateField.getValue(), Double.parseDouble(openingBalanceField.getText()));	
+		
+        	saveAccountToFile(account); 
+        
+		URL url = getClass().getClassLoader().getResource("view/Content2.fxml");
+		
+		
+		try {
+			AnchorPane pane2 = (AnchorPane) FXMLLoader.load(url);
 			
-			URL url = getClass().getClassLoader().getResource("view/Content2.fxml");
+			HBox mainBox = commonObjects.getMainBox();
 			
-			
-			try {
-				AnchorPane pane2 = (AnchorPane) FXMLLoader.load(url);
-				
-				HBox mainBox = commonObjects.getMainBox();
-				
-				if (mainBox.getChildren().size() > 1) {
-					mainBox.getChildren().remove(1);
-				}
-				
-				mainBox.getChildren().add(pane2);
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if (mainBox.getChildren().size() > 1) {
+				mainBox.getChildren().remove(1);
 			}
-
-		    	BankAccount account = new BankAccount(accountNameField.getText(), openingDateField.getValue(), Double.parseDouble(openingBalanceField.getText()));
-		    	addAccount(account);
-		    	
-		}
-	
+			
+			mainBox.getChildren().add(pane2);
+			mainBox.requestLayout(); // refresh ui line
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		    	
 	}
+
+}
 		
 	URL resource = getClass().getResource("/data/accounts.csv");
 	String filePath = resource.getPath(); 
