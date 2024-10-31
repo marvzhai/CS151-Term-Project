@@ -24,9 +24,6 @@ public class AddAccountController {
 	@FXML 
 	private TextField accountNameField;
 	
-	@FXML 
-	private TextField accountTypeField;
-	
 	@FXML
 	private DatePicker openingDateField;
 	
@@ -38,9 +35,6 @@ public class AddAccountController {
 	
 	@FXML
 	private Label accountNameError;
-
-	@FXML
-	private Label accountTypeError;
 
 	@FXML
 	private Label openingDateError;
@@ -124,7 +118,6 @@ public class AddAccountController {
 	private boolean validateFields() {
 	    // Clear previous error messages
 	    accountNameError.setText("");
-	    accountTypeError.setText("");
 	    openingDateError.setText("");
 	    openingBalanceError.setText("");
 
@@ -134,13 +127,6 @@ public class AddAccountController {
 	        accountNameError.setText("Account Name is required.");
 	        isValid = false;
 	    }
-
-	    String accountType = accountTypeField.getText();
-	    if (accountType.isEmpty() || (!accountType.equals("Savings") && !accountType.equals("Checking"))) {
-	        accountTypeError.setText("Account Type must be 'Savings' or 'Checking'.");
-	        isValid = false;
-	    }
-
 	    
 	    if (openingDateField.getValue().isAfter(LocalDate.now()) ) {
 	        openingDateError.setText("Opening Date cannot be in the future.");

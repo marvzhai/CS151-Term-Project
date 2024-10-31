@@ -12,29 +12,22 @@
    <children>
    
    <!-- Account Name -->
-   	<Label layoutX="119.0" layoutY="56.0" text="Account Name" />
-      <TextField fx:id="accountNameField" layoutX="120.0" layoutY="73.0" promptText="Enter..." />
-       <Label fx:id="accountNameError" layoutX="120.0" layoutY="100.0" style="-fx-text-fill: red;" text="" />
-      
-      
-      <!-- Account Type --> 
-      <Label layoutX="120.0" layoutY="118.0" text="Account Type" />
-      <TextField fx:id="accountTypeField" layoutX="120.0" layoutY="135.0" promptText="Enter..." />
-      <Label fx:id="accountTypeError" layoutX="120.0" layoutY="162" style="-fx-text-fill: red;" text="" />
-    
-      
+   	<Label layoutX="120.0" layoutY="70.0" text="Account Name" />
+      <TextField fx:id="accountNameField" layoutX="120.0" layoutY="88.0" promptText="Enter..." />
+       <Label fx:id="accountNameError" layoutX="120.0" layoutY="115.0" style="-fx-text-fill: red;" text="" />
+       
       <!-- Opening Date -->
-      <Label layoutX="121.0" layoutY="180.0" text="Opening Date" />
-      <DatePicker fx:id="openingDateField" layoutX="120.0" layoutY="197.0" prefHeight="25.0" prefWidth="149.0" />
-       <Label fx:id="openingDateError" layoutX="120.0" layoutY="224.0" style="-fx-text-fill: red;" text="" />
+      <Label layoutX="120.0" layoutY="130.0" text="Opening Date" />
+      <DatePicker fx:id="openingDateField" layoutX="120.0" layoutY="146.0" prefHeight="25.0" prefWidth="149.0" />
+       <Label fx:id="openingDateError" layoutX="120.0" layoutY="171.0" style="-fx-text-fill: red;" text="" />
       
       <!-- Opening Balance -->
-      <Label layoutX="121.0" layoutY="242.0" text="Opening Balance" />
-      <TextField fx:id="openingBalanceField" layoutX="120.0" layoutY="259.0" prefHeight="25.0" prefWidth="149.0" promptText="Enter..." />
-       <Label fx:id="openingBalanceError" layoutX="120.0" layoutY="286.0" style="-fx-text-fill: red;" text="" /> 
+      <Label layoutX="120.0" layoutY="190.0" text="Opening Balance" />
+      <TextField fx:id="openingBalanceField" layoutX="120.0" layoutY="208.0" prefHeight="25.0" prefWidth="149.0" promptText="Enter..." />
+       <Label fx:id="openingBalanceError" layoutX="120.0" layoutY="233.0" style="-fx-text-fill: red;" text="" /> 
       
       
-      <Button fx:id="addButton" layoutX="130.0" layoutY="306.0" mnemonicParsing="false" onAction="#AddAccount" prefHeight="25.0" prefWidth="129.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Add" />
+      <Button fx:id="addButton" layoutX="130.0" layoutY="255.0" mnemonicParsing="false" onAction="#AddAccount" prefHeight="25.0" prefWidth="129.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Add" />
       
    </children>
 </AnchorPane>
