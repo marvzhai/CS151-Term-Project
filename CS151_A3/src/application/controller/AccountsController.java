@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -51,8 +52,11 @@ public class AccountsController {
     
     private void loadAccountsFromFile() {
     	
-    	URL resource = getClass().getResource("/data/accounts.csv");
-    	String filePath = resource.getPath(); 
+    	//URL resource = getClass().getResource("/data/accounts.csv");
+    //	String filePath = resource.getPath(); 
+    	
+    	File filePath = new File("data/accounts.csv");
+
     	
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
