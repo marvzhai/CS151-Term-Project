@@ -71,7 +71,6 @@ public class AccountsController {
                     double balance = Double.parseDouble(data[2]);
                     System.out.println("balance is " + balance);
                     
-                    // Create a new BankAccount object and add it to the list
                     BankAccount account = new BankAccount(name, openingDate, balance);
                     accountsList.add(account);
                 }
@@ -82,7 +81,7 @@ public class AccountsController {
     }
 
     public void refreshTable() {
-        loadAccountsFromFile();  // Reload data from the CSV
+        loadAccountsFromFile();  
     }
     
     public void setAccountController(AddAccountController accountController) {

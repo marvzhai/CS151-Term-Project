@@ -4,19 +4,22 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <!-- ADD TRANSACTION TYPES PAGE -->
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AddTransactionTypeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AddTransactionTypeController">
     <children>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="131.0" layoutY="14.0" prefHeight="33.0" prefWidth="220.0" styleClass="header-label" stylesheets="@../css/header.css" text="Transaction Types" textFill="#252424">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="14.0" prefHeight="33.0" prefWidth="220.0" styleClass="header-label" stylesheets="@../css/header.css" text="Add Transaction Types" textFill="#252424">
             <font>
                 <Font size="24.0" />
             </font>
         </Label>
-        <TextField fx:id="transactionTypeField" layoutX="100.0" layoutY="76.0" promptText="Transaction Type" prefWidth="200.0" />
-        <Button layoutX="150.0" layoutY="150.0" text="Save" onAction="#saveTransactionType" />
-        <Label fx:id="validationLabel" layoutX="100.0" layoutY="200.0" textFill="red" />
+        <VBox alignment="CENTER" spacing="10.0" layoutX="100.0" layoutY="80.0" prefWidth="200.0">
+            <TextField fx:id="transactionTypeField" promptText="Transaction Type" prefWidth="200.0" />
+            <Button text="Save" onAction="#saveTransactionType" prefWidth="100.0" />
+            <Label fx:id="validationLabel" text="" textFill="red" />
+        </VBox>
     </children>
 </AnchorPane>

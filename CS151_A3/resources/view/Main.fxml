@@ -14,7 +14,7 @@
                 <VBox layoutY="-4.0" prefHeight="406.0" prefWidth="200.0" style="-fx-background-color: #9cabb4;">
                     <children>
                         <Label prefHeight="62.0" prefWidth="206.0" styleClass="app-name-label" stylesheets="@../css/appname.css" text="BudgetMe" />
-                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showContent1Op" prefHeight="30.0" prefWidth="205.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Home">
+                        <Button alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showContent1Op" prefHeight="30.0" prefWidth="205.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Home">
                             <padding>
                                 <Insets left="25.0" />
                             </padding>
@@ -25,6 +25,12 @@
                             </padding>
                         </Button>
                         <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToAddTransactionTypes" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Transaction Types">
+                            <padding>
+                                <Insets left="25.0" />
+                            </padding>
+                        </Button>
+                        <!-- New Button for Enter Transactions -->
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToEnterTransactions" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Enter Transactions">
                             <padding>
                                 <Insets left="25.0" />
                             </padding>

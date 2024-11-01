@@ -23,11 +23,12 @@ public class AddTransactionTypeController {
         String transactionType = transactionTypeField.getText();
         
         if (transactionType.isEmpty()) {
+        	// display error for being left empty
             validationLabel.setText("Transaction type is required.");
             return;
         }
 
-        // Save transaction type to file
+        // transaction type save
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(Paths.get(DATA_FOLDER, FILE_NAME).toString(), true))) {
             writer.write(transactionType);
             writer.newLine();

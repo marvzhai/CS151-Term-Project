@@ -11,7 +11,6 @@ public class MainController {
 
     @FXML HBox mainBox;
 
-    // Loading content at launch
     @FXML public void initialize() {
         showContent1Op();
     }
@@ -50,6 +49,19 @@ public class MainController {
                 mainBox.getChildren().remove(1);
             }
             mainBox.getChildren().add(pane3);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML public void goToEnterTransactions() {
+        URL url = getClass().getClassLoader().getResource("view/Content5.fxml");
+        try {
+            AnchorPane pane4 = (AnchorPane) FXMLLoader.load(url);
+            if (mainBox.getChildren().size() > 1) {
+                mainBox.getChildren().remove(1);
+            }
+            mainBox.getChildren().add(pane4);
         } catch (IOException e) {
             e.printStackTrace();
         }

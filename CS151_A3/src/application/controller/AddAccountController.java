@@ -91,7 +91,6 @@ public class AddAccountController {
 	private ObservableList<BankAccount> accountsList;
 
 	    public AddAccountController() {
-	        // Initialize the list and load accounts from the file
 	        accountsList = FXCollections.observableArrayList();
 	        //loadAccountsFromFile();
 	    }
