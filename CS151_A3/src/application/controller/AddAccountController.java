@@ -5,6 +5,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.io.BufferedWriter;
@@ -42,6 +45,9 @@ public class AddAccountController {
 
 	@FXML
 	private Label openingBalanceError;
+	
+	@FXML 
+	private Label accountDuplicateError;
 	
 	@FXML
     public void initialize() {
@@ -118,6 +124,20 @@ public class AddAccountController {
 	        saveAccountToFile(account);  // Save to file	      
 	        
 	    }
+	 
+	 private Set<String> loadAccountNames() throws IOException {
+	        Set<String> accountNames = new HashSet<>();
+	        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+	            String line;
+	            while ((line = br.readLine()) != null) {
+	                String[] values = line.split(","); 
+	                if (values.length > 0) {
+	                    accountNames.add(values[0].trim());
+	                }
+	            }
+	        }
+	        return accountNames;
+	    }
 
 	private boolean validateFields() {
 	    // Clear previous error messages
@@ -131,6 +151,16 @@ public class AddAccountController {
 	        accountNameError.setText("Account Name is required.");
 	        isValid = false;
 	    }
+	    
+	    try {
+	    	Set<String> accountNames = loadAccountNames();
+	    	if (accountNames.contains(accountNameField.getText())) {
+	    		accountDuplicateError.setText("Account Name already in use.");
+	    		isValid = false;
+	    	}
+	    } catch (IOException e) {
+            e.printStackTrace();
+        }
 	    
 	    if (openingDateField.getValue().isAfter(LocalDate.now()) ) {
 	        openingDateError.setText("Opening Date cannot be in the future.");
