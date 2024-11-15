@@ -94,14 +94,7 @@ public class TransactionsController {
     	loadTransactionsFromFile();
     }
     
-    /*
-    public void setTransactionController(EnterTransactionsController transactionController) {
-        this.transactionController = transactionController;
-        if (transactionsTable != null) {
-            transactionsTable.setItems(transactionController.getTransactionList());
-        }
-    }
-    */
+  
 	
 
 }
