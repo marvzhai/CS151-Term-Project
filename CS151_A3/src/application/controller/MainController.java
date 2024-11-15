@@ -66,4 +66,19 @@ public class MainController {
             e.printStackTrace();
         }
     }
+    
+    @FXML public void goToTransactions() {
+        URL url = getClass().getClassLoader().getResource("view/Content6.fxml");
+        try {
+            AnchorPane pane5 = (AnchorPane) FXMLLoader.load(url);
+            if (mainBox.getChildren().size() > 1) {
+                mainBox.getChildren().remove(1);
+            }
+            mainBox.getChildren().add(pane5);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
 }
