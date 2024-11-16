@@ -112,7 +112,7 @@ public class EnterTransactionsController {
 
                         if (accountName.equals(account)) {
                             // Update balance for the matching account
-                            double newBalance = currentBalance - payment;
+                            double newBalance = currentBalance - payment + deposit;
                             
                             if (newBalance < 0 ) {
                             	validationLabel.setText("Not enough funds in account");
