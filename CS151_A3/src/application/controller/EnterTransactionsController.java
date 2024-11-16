@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -99,9 +98,10 @@ public class EnterTransactionsController {
 
             boolean accountUpdated = false;
 
+            String line;
             try (BufferedReader reader = new BufferedReader(new FileReader(accountsFile));
                  BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
-                String line;
+                
                 while ((line = reader.readLine()) != null) {
                 	System.out.println("test: " + line);
                     String[] accountData = line.split(",");
@@ -127,16 +127,33 @@ public class EnterTransactionsController {
                         writer.newLine();
                     }
                 }
+            } finally {
+            	System.out.println("Closed BufferedReader for Accounts File");
+            }
 
                 if (!accountUpdated) {
                     validationLabel.setText("Account not found.");
-                } else {
-                    // Rename temp file to original file
-                    accountsFile.delete();
-                    tempFile.renameTo(accountsFile);
-                    
+                    tempFile.delete();
+                    return;
+                } 
+
+                
+                // Replace original file with the updated temp file
+                try {
+                    java.nio.file.Files.move(
+                        tempFile.toPath(),
+                        accountsFile.toPath(),
+                        java.nio.file.StandardCopyOption.REPLACE_EXISTING
+                    );
+                } catch (IOException e) {
+                    validationLabel.setText("Error replacing accounts file.");
+                    e.printStackTrace();
+                    tempFile.delete(); // Clean up temp file
+                    return;
+                }
+                
                     // save transaction
-                    try (BufferedWriter writer2 = new BufferedWriter(new FileWriter("data/transactions.csv", true))) {
+                try (BufferedWriter writer2 = new BufferedWriter(new FileWriter("data/transactions.csv", true))) {
                         line = String.format("%s,%s,%s,%s,%.2f,%.2f",
                                 account, transactionType, transactionDate, transactionDescription, payment, deposit);
                         writer2.write(line);
@@ -147,16 +164,14 @@ public class EnterTransactionsController {
                         validationLabel.setText("Error saving transaction.");
                         e.printStackTrace();
                     }
-                }
-            } catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+                
+         
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-        } catch (NumberFormatException e) {
-            validationLabel.setText("Invalid amount values.");
-        }
     }
+   
+    
 }
+
