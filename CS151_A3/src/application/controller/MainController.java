@@ -80,5 +80,31 @@ public class MainController {
         }
     }
     
+    @FXML public void goToEnterScheduledTransactions() {
+    	URL url = getClass().getClassLoader().getResource("view/Content7.fxml");
+    	try {
+    		AnchorPane pane6 = (AnchorPane) FXMLLoader.load(url);
+    		if (mainBox.getChildren().size() > 1) {
+    			mainBox.getChildren().remove(1);
+    		}
+    		mainBox.getChildren().add(pane6);
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    		
+    	}
+    }
     
+    @FXML public void goToScheduledTransactions() {
+    	URL url = getClass().getClassLoader().getResource("view/Content8.fxml");
+    	try {
+    		AnchorPane pane6 = (AnchorPane) FXMLLoader.load(url);
+    		if (mainBox.getChildren().size() > 1) {
+    			mainBox.getChildren().remove(1);
+    		}
+    		mainBox.getChildren().add(pane6);
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    		
+    	}
+    }
 }

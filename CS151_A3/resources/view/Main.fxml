@@ -9,7 +9,7 @@
 
 <!-- APPLICATION PAGE -->
 
-<HBox fx:id="mainBox" prefHeight="400.0" prefWidth="600.0" HBox.hgrow="ALWAYS" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+<HBox fx:id="mainBox" prefHeight="400.0" prefWidth="600.0" HBox.hgrow="ALWAYS" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
     <children>
         <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: azure;">
             <children>
@@ -31,13 +31,12 @@
                                 <Insets left="25.0" />
                             </padding>
                         </Button>
-                        <!-- New Button for Enter Transactions -->
-                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToEnterTransactions" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Enter Transactions">
-                            <padding>
-                                <Insets left="25.0" />
-                            </padding>
-                        </Button>
                   <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToTransactions" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Transactions">
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="162.0" mnemonicParsing="false" onAction="#goToScheduledTransactions" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Scheduled Transactions">
                      <padding>
                         <Insets left="25.0" />
                      </padding>

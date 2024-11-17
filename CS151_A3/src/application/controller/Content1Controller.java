@@ -14,6 +14,8 @@ public class Content1Controller {
 	
 	private CommonObjects commonObjects = CommonObjects.getInstance();
 	
+	
+	
 	@FXML public void gotToContent3Op() {
 		URL url = getClass().getClassLoader().getResource("view/Content3.fxml");
 		
@@ -33,5 +35,43 @@ public class Content1Controller {
 			e.printStackTrace();
 		}
 	}
+	
+	  @FXML public void goToEnterTransactions() {
+	        URL url = getClass().getClassLoader().getResource("view/Content5.fxml");
+	        try {
+				AnchorPane pane5 = (AnchorPane) FXMLLoader.load(url);
+				
+				HBox mainBox = commonObjects.getMainBox();
+				
+				if (mainBox.getChildren().size() > 1) {
+					mainBox.getChildren().remove(1);
+				}
+				
+				mainBox.getChildren().add(pane5);
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
+	  
+	  @FXML public void goToEnterScheduledTransactions() {
+	    	URL url = getClass().getClassLoader().getResource("view/Content7.fxml");
+	    	try {
+				AnchorPane pane7 = (AnchorPane) FXMLLoader.load(url);
+				
+				HBox mainBox = commonObjects.getMainBox();
+				
+				if (mainBox.getChildren().size() > 1) {
+					mainBox.getChildren().remove(1);
+				}
+				
+				mainBox.getChildren().add(pane7);
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
 	
 }

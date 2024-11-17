@@ -14,6 +14,8 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="127.0" layoutY="186.0" mnemonicParsing="false" onAction="#gotToContent3Op" prefHeight="26.0" prefWidth="146.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Open New Account" />
+      <Button alignment="CENTER" layoutX="95.0" layoutY="172.0" mnemonicParsing="false" onAction="#gotToContent3Op" prefHeight="28.0" prefWidth="208.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Open New Account" />
+      <Button alignment="CENTER" layoutX="96.0" layoutY="210.0" mnemonicParsing="false" onAction="#goToEnterTransactions" prefHeight="28.0" prefWidth="208.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Enter Transactions" />
+      <Button alignment="CENTER" layoutX="97.0" layoutY="246.0" mnemonicParsing="false" onAction="#goToEnterScheduledTransactions" prefHeight="28.0" prefWidth="208.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Enter Scheduled Transactions" />
    </children>
 </AnchorPane>

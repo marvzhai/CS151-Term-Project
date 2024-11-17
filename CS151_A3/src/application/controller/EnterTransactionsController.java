@@ -1,10 +1,13 @@
 package application.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,9 +15,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import application.CommonObjects;
 
 public class EnterTransactionsController {
 
@@ -26,6 +32,8 @@ public class EnterTransactionsController {
     @FXML private TextField depositAmountField;
     @FXML private Label validationLabel;
 
+    private CommonObjects commonObjects = CommonObjects.getInstance();
+    
     @FXML
     public void initialize() {
     	// load data 
@@ -51,6 +59,7 @@ public class EnterTransactionsController {
             validationLabel.setText("Error loading accounts.");
             e.printStackTrace();
         }
+        
         accountComboBox.getItems().addAll(accounts);
     }
 
@@ -127,7 +136,9 @@ public class EnterTransactionsController {
                         writer.newLine();
                     }
                 }
-            } finally {
+            } catch (NumberFormatException e) {
+	            validationLabel.setText("Invalid payment amount. Please enter a number.");
+	        } finally {
             	System.out.println("Closed BufferedReader for Accounts File");
             }
 
@@ -160,7 +171,9 @@ public class EnterTransactionsController {
                         writer2.newLine();
                         validationLabel.setText("Transaction saved and balance updated.");
                         
-                    } catch (IOException e) {
+                    } catch (NumberFormatException e) {
+        	            validationLabel.setText("Invalid payment amount. Please enter a number.");
+        	        } catch (IOException e) {
                         validationLabel.setText("Error saving transaction.");
                         e.printStackTrace();
                     }
@@ -170,8 +183,24 @@ public class EnterTransactionsController {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+        
+        URL url = getClass().getClassLoader().getResource("view/Content6.fxml");
+        try {
+			AnchorPane pane= (AnchorPane) FXMLLoader.load(url);
+			
+			HBox mainBox = commonObjects.getMainBox();
+			
+			if (mainBox.getChildren().size() > 1) {
+				mainBox.getChildren().remove(1);
+			}
+			
+			mainBox.getChildren().add(pane);
+			mainBox.requestLayout(); // refresh ui line
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
-   
     
 }
 

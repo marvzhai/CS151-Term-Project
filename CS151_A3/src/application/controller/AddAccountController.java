@@ -66,8 +66,7 @@ public class AddAccountController {
 		
         	saveAccountToFile(account); 
         
-		URL url = getClass().getClassLoader().getResource("view/Content2.fxml");
-		
+		URL url = getClass().getClassLoader().getResource("view/Content2.fxml");		
 		
 		try {
 			AnchorPane pane2 = (AnchorPane) FXMLLoader.load(url);
@@ -87,10 +86,7 @@ public class AddAccountController {
 	}
 
 }
-		
-	//URL resource = getClass().getResource("/data/accounts.csv");
-	//String filePath = resource.getPath(); 
-	
+	 	
 	File filePath = new File("data/accounts.csv");
 
 	

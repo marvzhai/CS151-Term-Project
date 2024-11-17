@@ -37,9 +37,6 @@ public class TransactionsController {
     @FXML
     private TableColumn<Transaction, Double> depositAmount;
     
-    
-    //private EnterTransactionsController transactionController = new EnterTransactionsController();
-    
     private ObservableList<Transaction> transactionsList = FXCollections.observableArrayList();
     
     @FXML
