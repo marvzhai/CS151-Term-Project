@@ -11,21 +11,21 @@
 
 <!-- ENTER TRANSACTIONS PAGE -->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EnterTransactionsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EnterTransactionsController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="14.0" prefHeight="33.0" prefWidth="220.0" styleClass="header-label" stylesheets="@../css/header.css" text="Enter Transactions" textFill="#252424">
             <font>
                 <Font size="24.0" />
             </font>
         </Label>
-        <VBox alignment="CENTER" spacing="10.0" layoutX="100.0" layoutY="80.0" prefWidth="200.0">
-            <ComboBox fx:id="accountComboBox" promptText="Select Account" prefWidth="200.0" />
-            <ComboBox fx:id="transactionTypeComboBox" promptText="Select Transaction Type" prefWidth="200.0" />
+        <VBox alignment="CENTER" layoutX="100.0" layoutY="80.0" prefWidth="200.0" spacing="10.0">
+            <ComboBox fx:id="accountComboBox" prefWidth="200.0" promptText="Select Account" />
+            <ComboBox fx:id="transactionTypeComboBox" prefWidth="200.0" promptText="Select Transaction Type" />
             <DatePicker fx:id="transactionDatePicker" prefWidth="200.0" />
-            <TextField fx:id="transactionDescriptionField" promptText="Transaction Description" prefWidth="200.0" />
-            <TextField fx:id="paymentAmountField" promptText="Payment Amount" prefWidth="200.0" />
-            <TextField fx:id="depositAmountField" promptText="Deposit Amount" prefWidth="200.0" />
-            <Button text="Save" onAction="#saveTransaction" prefWidth="100.0" />
+            <TextField fx:id="transactionDescriptionField" prefWidth="200.0" promptText="Transaction Description" />
+            <TextField fx:id="paymentAmountField" prefWidth="200.0" promptText="Payment Amount" />
+            <TextField fx:id="depositAmountField" prefWidth="200.0" promptText="Deposit Amount" />
+            <Button onAction="#saveTransaction" prefWidth="100.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Save" />
             <Label fx:id="validationLabel" text="" textFill="red" />
         </VBox>
     </children>
