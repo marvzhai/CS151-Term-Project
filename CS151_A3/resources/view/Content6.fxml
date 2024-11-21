@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<!-- Transactions Page-->
+<!-- Transactions Page -->
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TransactionsController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="14.0" prefHeight="33.0" prefWidth="220.0" styleClass="header-label" stylesheets="@../css/header.css" text="Transactions" textFill="#252424">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="25.0" prefHeight="39.0" prefWidth="234.0" styleClass="header-label" stylesheets="@../css/header.css" text="Transactions" textFill="#252424">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="transactionsTable" layoutY="76.0" prefHeight="325.0" prefWidth="400.0">
-        <columns>
-          <TableColumn fx:id="accountName" prefWidth="64.0" text="Account" />
-          <TableColumn fx:id="transactionType" prefWidth="52.0" text="Type" />
-            <TableColumn fx:id="transactionDate" prefWidth="68.0" text="Date" />
-            <TableColumn fx:id="transactionDescription" prefWidth="86.0" text="Description" />
-            <TableColumn fx:id="paymentAmount" prefWidth="65.0" text="Payment" />
-            <TableColumn fx:id="depositAmount" prefWidth="64.0" text="Deposit" />
-        </columns>
-      </TableView>
+      <VBox layoutY="88.0" prefHeight="314.0" prefWidth="400.0">
+         <children>
+            <TextField fx:id="searchField" onKeyReleased="#searchTransactions" promptText="Search transactions..." />
+            <TableView fx:id="transactionsTable" prefHeight="313.0" prefWidth="368.0">
+              <columns>
+                <TableColumn fx:id="accountName" prefWidth="64.0" text="Account" />
+                <TableColumn fx:id="transactionType" prefWidth="52.0" text="Type" />
+                <TableColumn fx:id="transactionDate" prefWidth="68.0" text="Date" />
+                <TableColumn fx:id="transactionDescription" prefWidth="86.0" text="Description" />
+                <TableColumn fx:id="paymentAmount" prefWidth="65.0" text="Payment" />
+                <TableColumn fx:id="depositAmount" prefWidth="64.0" text="Deposit" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
