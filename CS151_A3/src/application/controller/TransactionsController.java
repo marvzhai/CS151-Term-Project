@@ -4,16 +4,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+
+import application.CommonObjects;
 
 public class TransactionsController {
 
@@ -42,6 +50,7 @@ public class TransactionsController {
     private TextField searchField;
 
     private ObservableList<Transaction> transactionsList = FXCollections.observableArrayList();
+    
 
     @FXML
     public void initialize() {
@@ -54,9 +63,21 @@ public class TransactionsController {
 
         loadTransactionsFromFile();
         transactionsTable.setItems(transactionsList);
+        sortTransactionsByTransactionDate();
 
         // Add listener for search field
         searchField.textProperty().addListener((observable, oldValue, newValue) -> searchTransactions());
+        
+        transactionsTable.setRowFactory(tv -> {
+            TableRow<Transaction> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    Transaction selectedTransaction = row.getItem();
+                    openEditTransactionsPage(selectedTransaction);
+                }
+            });
+            return row;
+        });
     }
 
     private void loadTransactionsFromFile() {
@@ -86,6 +107,12 @@ public class TransactionsController {
     public void refreshTable() {
         loadTransactionsFromFile();
     }
+    
+    private void sortTransactionsByTransactionDate() {
+        FXCollections.sort(transactionsList, (t1, t2) -> {
+            return t2.getDate().compareTo(t1.getDate()); // Ascending order
+        });
+    }
 
     @FXML
     private void searchTransactions() {
@@ -99,5 +126,26 @@ public class TransactionsController {
         });
         transactionsTable.setItems(filteredData);
     }
+   
+    private CommonObjects commonObjects = CommonObjects.getInstance();
+    
+    @FXML 
+    public void openEditTransactionsPage(Transaction transaction) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/EditTransactionsPage.fxml"));
+            AnchorPane pane6 = loader.load();
 
+            EditTransactionsController controller = loader.getController();
+            controller.setTransaction(transaction);
+            
+            HBox mainBox = commonObjects.getMainBox();
+
+            if (mainBox.getChildren().size() > 1) {
+                mainBox.getChildren().remove(1);
+            }
+            mainBox.getChildren().add(pane6);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

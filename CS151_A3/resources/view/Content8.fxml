@@ -22,12 +22,12 @@
             <TextField fx:id="searchField" onKeyReleased="#searchScheduledTransactions" promptText="Search..." />
             <TableView fx:id="scheduledTransactionsTable" prefHeight="313.0" prefWidth="368.0">
               <columns>
-                <TableColumn fx:id="transactionName" prefWidth="58.0" text="Name" />
-                <TableColumn fx:id="accountName" prefWidth="79.0" text="Account" />
-                  <TableColumn fx:id="transactionType" prefWidth="55.0" text="Type" />
-                  <TableColumn fx:id="frequencyType" prefWidth="67.0" text="Frequency" />
-                  <TableColumn fx:id="dueDate" prefWidth="68.0" text="Due" />
-                  <TableColumn fx:id="paymentAmount" prefWidth="72.0" text="Amount" />
+                <TableColumn fx:id="transactionName" prefWidth="106.0" text="Name" />
+                <TableColumn fx:id="accountName" prefWidth="70.0" text="Account" />
+                  <TableColumn fx:id="transactionType" prefWidth="53.0" text="Type" />
+                  <TableColumn fx:id="frequencyType" prefWidth="66.0" text="Frequency" />
+                  <TableColumn fx:id="dueDate" prefWidth="40.0" text="Due" />
+                  <TableColumn fx:id="paymentAmount" prefWidth="64.0" text="Amount" />
               </columns>
             </TableView>
          </children>

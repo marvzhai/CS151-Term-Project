@@ -1,5 +1,10 @@
-
-Rent,Checking 2,Rent,Monthly,19,2000.00
-Water,Checking 2,Bills,Monthly,27,80.00
-Electricity,Checking 2,Bills,Monthly,28,350.00
-Phone,Checking 1,Bills,Monthly,3,150.00
+Car,Checking 2,Bills,Monthly,28,400.00
+Water Bill,Checking 1,Bills,Monthly,28,30.00
+Electricity,Checking 1,Bills,Monthly,28,100.00
+Rent,Checking 2,Rent,Monthly,26,2000.00
+Internet,Checking 1,Bills,Monthly,25,50.00
+Car Insurance,Checking 2,Bills,Monthly,26,120.00
+Health Insurance,Checking 2,Bills,Monthly,20,400.00
+Gym,Checking 1,Bills,Monthly,1,20.00
+Life Insurance,Checking 2,Bills,Monthly,14,30.00
+Student Loans,Checking 2,Bills,Monthly,17,250.00

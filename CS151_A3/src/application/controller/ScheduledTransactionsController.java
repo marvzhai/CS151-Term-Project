@@ -4,16 +4,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+
+import application.CommonObjects;
 
 public class ScheduledTransactionsController {
 
@@ -58,6 +64,17 @@ public class ScheduledTransactionsController {
         // Add listener for search field
         searchField.textProperty().addListener((observable, oldValue, newValue) -> searchScheduledTransactions());
         refreshTable();
+        
+        scheduledTransactionsTable.setRowFactory(tv -> {
+            TableRow<ScheduledTransaction> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    ScheduledTransaction selectedTransaction = row.getItem();
+                    openEditScheduledTransactionsPage(selectedTransaction);
+                }
+            });
+            return row;
+        });
     }
 
     private void loadTransactionsFromFile() {
@@ -107,5 +124,27 @@ public class ScheduledTransactionsController {
             return scheduledTransaction.getName().toLowerCase().contains(searchText.toLowerCase());
         });
         scheduledTransactionsTable.setItems(filteredData);
+    }
+    
+    private CommonObjects commonObjects = CommonObjects.getInstance();
+    
+    @FXML 
+    public void openEditScheduledTransactionsPage(ScheduledTransaction transaction) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/EditScheduledTransactionsPage.fxml"));
+            AnchorPane pane6 = loader.load();
+
+            EditScheduledTransactionController controller = loader.getController();
+            controller.setScheduledTransaction(transaction);
+            
+            HBox mainBox = commonObjects.getMainBox();
+
+            if (mainBox.getChildren().size() > 1) {
+                mainBox.getChildren().remove(1);
+            }
+            mainBox.getChildren().add(pane6);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
