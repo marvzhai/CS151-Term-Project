@@ -132,7 +132,7 @@ public class TransactionsController {
     @FXML 
     public void openEditTransactionsPage(Transaction transaction) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/EditTransactionsPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/Content9.fxml"));
             AnchorPane pane6 = loader.load();
 
             EditTransactionsController controller = loader.getController();

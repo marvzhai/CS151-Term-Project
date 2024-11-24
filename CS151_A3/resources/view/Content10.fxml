@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<!-- Edit Scheduled Transactions Page -->
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EditScheduledTransactionController">
+    <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="25.0" prefHeight="39.0" prefWidth="234.0" styleClass="header-label" stylesheets="@../css/header.css" text="Scheduled Transaction Details" textFill="#252424">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <TextField fx:id="transactionName" layoutX="50.0" layoutY="60.0" promptText="Transaction Name" />
+        <TextField fx:id="paymentAmount" layoutX="50.0" layoutY="100.0" promptText="Payment Amount" />
+        <TextField fx:id="dueDate" layoutX="50.0" layoutY="140.0" promptText="Due Date" />
+        <Button fx:id="saveButton" layoutX="150.0" layoutY="180.0" text="Save" />
+    </children>
+</AnchorPane>
