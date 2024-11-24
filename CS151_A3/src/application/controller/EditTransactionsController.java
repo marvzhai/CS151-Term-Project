@@ -36,8 +36,7 @@ public class EditTransactionsController {
     
     private CommonObjects commonObjects = CommonObjects.getInstance();
 
-    @FXML public void initialize() {
-    	// load data 
+    @FXML public void initialize() {   
         loadAccounts();
         loadTransactionTypes();
         
@@ -130,14 +129,13 @@ public class EditTransactionsController {
                         String existingType = fields[1];
                         LocalDate existingDate = LocalDate.parse(fields[2]);
                         String existingDescription = fields[3];
-
-                        // Check if this is the transaction to update
+                   
                         if (existingAccount.equals(transaction.getName()) &&
                             existingType.equals(transaction.getType()) &&
                             existingDate.equals(transaction.getDate()) &&
                             existingDescription.equals(transaction.getDesc())) {
 
-                            // Update the transaction
+                          
                             line = String.format("%s,%s,%s,%s,%.2f,%.2f",
                                     account, transactionType, transactionDate, transactionDescription, payment, deposit);
                             transactionUpdated = true;
@@ -154,7 +152,6 @@ public class EditTransactionsController {
                 return;
             }
 
-            // Replace original file with the updated file
             java.nio.file.Files.move(
                     tempFile.toPath(),
                     transactionsFile.toPath(),

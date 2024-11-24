@@ -131,7 +131,7 @@ public class ScheduledTransactionsController {
     @FXML 
     public void openEditScheduledTransactionsPage(ScheduledTransaction transaction) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/Content10.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/EditSCheduledTransactionsPage.fxml"));
             AnchorPane pane6 = loader.load();
 
             EditScheduledTransactionController controller = loader.getController();
