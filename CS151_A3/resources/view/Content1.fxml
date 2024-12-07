@@ -3,19 +3,24 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <!-- HOME PAGE -->
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Content1Controller">
    <children>
-      <Label layoutX="59.0" layoutY="70.0" onDragDetected="#gotToContent3Op" prefHeight="73.0" prefWidth="282.0" styleClass="heading-label" stylesheets="@../css/heading-label.css" text="Welcome Back!">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Button alignment="CENTER" layoutX="95.0" layoutY="172.0" mnemonicParsing="false" onAction="#gotToContent3Op" prefHeight="28.0" prefWidth="208.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Open New Account" />
-      <Button alignment="CENTER" layoutX="96.0" layoutY="210.0" mnemonicParsing="false" onAction="#goToEnterTransactions" prefHeight="28.0" prefWidth="208.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Enter Transactions" />
-      <Button alignment="CENTER" layoutX="97.0" layoutY="246.0" mnemonicParsing="false" onAction="#goToEnterScheduledTransactions" prefHeight="28.0" prefWidth="208.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Enter Scheduled Transactions" />
+      <VBox fx:id="homePage" prefHeight="400.0" prefWidth="400.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" onDragDetected="#gotToContent3Op" prefHeight="73.0" prefWidth="396.0" styleClass="heading-label" stylesheets="@../css/heading-label.css" text="Welcome Back!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#gotToContent3Op" prefHeight="28.0" prefWidth="208.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Open New Account" textAlignment="CENTER" translateX="100.0" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToEnterTransactions" prefHeight="28.0" prefWidth="208.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Enter Transactions" textAlignment="CENTER" translateX="100.0" translateY="10.0" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToEnterScheduledTransactions" prefHeight="28.0" prefWidth="208.0" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Enter Scheduled Transactions" textAlignment="CENTER" translateX="100.0" translateY="20.0" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
