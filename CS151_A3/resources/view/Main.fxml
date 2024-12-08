@@ -41,6 +41,16 @@
                         <Insets left="25.0" />
                      </padding>
                   </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToReportByAccount" prefHeight="30.0" prefWidth="263.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Transaction By Account">
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="222.0" mnemonicParsing="false" onAction="#goToReportByTransactionType" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #9CABB4;" styleClass="custom-button" stylesheets="@../css/navButton.css" text="Scheduled Transactions">
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding>
+                  </Button>
                     </children>
                 </VBox>
             </children>

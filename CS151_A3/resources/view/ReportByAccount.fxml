@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ReportByAccountController">
+
+   <children>
+      <Label layoutX="94.0" layoutY="14.0" prefHeight="39.0" prefWidth="217.0" styleClass="header-label" text="Report By Account">
+         <stylesheets>
+            <URL value="@../css/heading-label.css" />
+            <URL value="@../css/header.css" />
+         </stylesheets></Label>
+      <ComboBox fx:id="accountComboBox" layoutX="9.0" layoutY="78.0" prefWidth="150.0" promptText="Select Account" />
+      <TableView fx:id="transactionTable" layoutX="7.0" layoutY="113.0" prefHeight="250.0" prefWidth="375.0">
+        <columns>
+          <TableColumn fx:id="dateColumn" minWidth="56.0" prefWidth="103.0" text="Date" />
+		  <TableColumn fx:id="typeColumn" minWidth="40.0" prefWidth="70.0" text="Type" />
+          <TableColumn fx:id="descColumn" minWidth="51.0" prefWidth="75.0" text="Description" />
+          <TableColumn fx:id="paymentColumn" minWidth="36.0" prefWidth="63.0" text="Payment" />
+          <TableColumn fx:id="depositColumn" minWidth="63.0" prefWidth="63.0" text="Deposit" />
+         
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

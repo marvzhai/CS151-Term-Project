@@ -23,9 +23,6 @@ public class AccountsController {
     @FXML
     private TableColumn<BankAccount, String> accountName;
 
-    //@FXML
-    //private TableColumn<BankAccount, String> accountType;
-
     @FXML
     private TableColumn<BankAccount, String> openingDate;
 
@@ -42,7 +39,6 @@ public class AccountsController {
     	
         
         accountName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        //accountTypeColumn.setCellValueFactory(new PropertyValueFactory<>("accountType"));
         openingDate.setCellValueFactory(new PropertyValueFactory<>("openingDate"));
         openingBalance.setCellValueFactory(new PropertyValueFactory<>("balance"));
 
@@ -51,9 +47,6 @@ public class AccountsController {
     }
     
     private void loadAccountsFromFile() {
-    	
-    	//URL resource = getClass().getResource("/data/accounts.csv");
-    //	String filePath = resource.getPath(); 
     	
     	File filePath = new File("data/accounts.csv");
 

@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import java.io.IOException;
+import java.net.URL;
+import application.CommonObjects;
 
 public class MainController {
 
@@ -107,6 +110,51 @@ public class MainController {
     		
     	}
     }
+    @FXML
+    private void goToReportByAccount() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/ReportByAccount.fxml"));
+            AnchorPane pane = loader.load();
 
+            HBox mainBox = CommonObjects.getInstance().getMainBox();
+            if (mainBox.getChildren().size() > 1) {
+                mainBox.getChildren().remove(1);
+            }
+            mainBox.getChildren().add(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    private void goToReportByTransactionType() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/ReportByTransactionType.fxml"));
+            AnchorPane pane = loader.load();
+
+            HBox mainBox = CommonObjects.getInstance().getMainBox();
+            if (mainBox.getChildren().size() > 1) {
+                mainBox.getChildren().remove(1);
+            }
+            mainBox.getChildren().add(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void goToTransactionDetail() {
+        try {
+            URL url = getClass().getClassLoader().getResource("view/TransactionDetail.fxml");
+            AnchorPane pane = FXMLLoader.load(url);
+            if (mainBox.getChildren().size() > 1) {
+                mainBox.getChildren().remove(1);
+            }
+            mainBox.getChildren().add(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
 }
